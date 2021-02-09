@@ -1,15 +1,17 @@
-const INITIAL_STATE = {
-  product: {},
-  products: [],
+let INITIAL_STATE = {
+  productSelected: {},
+  listProducts: [],
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function (state = INITIAL_STATE, action) {
+export default function productReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "ADD_PRODUCT":
-      return [...state.products, action.payload];
+      return {
+        ...state.productSelected,
+        listProducts: [...state.listProducts, action.payload],
+      };
 
     default:
-      break;
+      return state;
   }
 }

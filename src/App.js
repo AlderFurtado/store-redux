@@ -1,7 +1,9 @@
+import ListProducts from "./components/ListProducts";
+
 function App() {
   return (
     <div>
-      <h1>Welcome</h1>
+      <ListProducts />
     </div>
   );
 }
