@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { addProduct } from "../../store/Product/Product.actions";
+import {
+  addProduct,
+  addProductInCart,
+} from "../../store/Product/Product.actions";
 
 import styles from "./style.module.css";
 
@@ -17,15 +20,22 @@ function ListProducts() {
   return (
     <>
       <div className={styles.container}>
-        {products.map(({ name, description, img }, index) => {
+        {products.map((product, index) => {
           return (
             <div key={index} className={styles.container_item}>
-              <img src={img} alt={name} />
+              <img src={product.img} alt={product.name} />
 
               <div>
-                <p className={styles.name}>{name}</p>
-                <p className={styles.description}>{description}</p>
+                <p className={styles.name}>{product.name}</p>
+                <p className={styles.description}>{product.description}</p>
               </div>
+              <button
+                onClick={() => {
+                  dispatch(addProductInCart(product));
+                }}
+              >
+                Comprar
+              </button>
             </div>
           );
         })}
