@@ -13,13 +13,15 @@ function App() {
   const dispatch = useDispatch();
   return (
     <div>
-      <div>
-        <button onClick={() => dispatch(changeScreen("FORM_ADD_PRODUCT"))}>
-          Adicionar produto
-        </button>
-        <Cart />
-      </div>
-      {screenStore === "LIST_PRODUCTS" && <ListProducts />}
+      {screenStore === "LIST_PRODUCTS" && (
+        <>
+          <Cart />
+          <ListProducts />
+          <button onClick={() => dispatch(changeScreen("FORM_ADD_PRODUCT"))}>
+            Adicionar produto
+          </button>
+        </>
+      )}
       {screenStore === "FORM_ADD_PRODUCT" && <FormNewProduct />}
     </div>
   );

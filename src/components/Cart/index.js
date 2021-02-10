@@ -10,7 +10,9 @@ function Cart() {
 
   return (
     <div>
-      <p>{productsInCartState.length}</p>
+      <p>
+        Produtos adicionados <span>{productsInCartState.length}</span>
+      </p>
     </div>
   );
 }
